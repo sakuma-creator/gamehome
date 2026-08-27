@@ -1,14 +1,687 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>ゲームサイト</title>
+
+    <!-- スマートフォンでも正しく表示するための設定 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>State act - 毒ノ空 -</title>
+
+    <style>
+        /* ========================================
+           全体
+        ======================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #eeeeee;
+            color: #333333;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Yu Gothic",
+                "Hiragino Kaku Gothic ProN",
+                Meiryo,
+                sans-serif;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+
+        /* ========================================
+           サイト全体
+        ======================================== */
+
+        .site {
+            width: 960px;
+            margin: 0 auto;
+            background: #ffffff;
+            min-height: 100vh;
+            border-left: 1px solid #dddddd;
+            border-right: 1px solid #dddddd;
+        }
+
+
+        /* ========================================
+           ヘッダー
+        ======================================== */
+
+        header {
+            padding: 25px 35px 18px;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .site-title {
+            margin: 0 0 5px;
+            font-size: 24px;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        .site-subtitle {
+            margin: 0;
+            color: #888888;
+            font-size: 12px;
+        }
+
+
+        /* ========================================
+           ナビゲーション
+        ======================================== */
+
+        nav {
+            border-bottom: 1px solid #dddddd;
+            padding: 0 35px;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 10px 18px;
+            color: #555555;
+            text-decoration: none;
+            border-right: 1px solid #eeeeee;
+        }
+
+        nav a:first-child {
+            border-left: 1px solid #eeeeee;
+        }
+
+        nav a:hover {
+            background: #f3f3f3;
+            color: #111111;
+        }
+
+
+        /* ========================================
+           メイン
+        ======================================== */
+
+        main {
+            padding: 30px 35px 60px;
+        }
+
+
+        /* ========================================
+           バージョン情報
+        ======================================== */
+
+        .version {
+            margin-bottom: 25px;
+            padding: 10px 15px;
+            background: #f5f5f5;
+            border: 1px solid #dddddd;
+            color: #666666;
+            font-size: 13px;
+        }
+
+
+        /* ========================================
+           各セクション
+        ======================================== */
+
+        section {
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            margin: 0 0 18px;
+            padding-bottom: 7px;
+            border-bottom: 1px solid #cccccc;
+            font-size: 18px;
+            font-weight: normal;
+            color: #444444;
+        }
+
+        .section-title small {
+            margin-left: 8px;
+            color: #aaaaaa;
+            font-size: 11px;
+        }
+
+
+        /* ========================================
+           ゲーム画面
+           816 × 624 固定
+        ======================================== */
+
+        .game-area {
+            width: 100%;
+            overflow-x: auto;
+            padding: 10px 0 15px;
+        }
+
+        .game-frame {
+            width: 816px;
+            height: 624px;
+            margin: 0 auto;
+        }
+
+        .game-frame iframe {
+            display: block;
+            width: 816px;
+            height: 624px;
+            border: 0;
+        }
+
+
+        /* ========================================
+           Googleフォーム
+        ======================================== */
+
+        .feedback-box {
+            padding: 25px;
+            border: 1px solid #dddddd;
+            background: #fafafa;
+            text-align: center;
+            color: #888888;
+        }
+
+        /*
+           Googleフォームを入れる場合は、
+           下の .feedback-box の中身を iframe に置き換える。
+        */
+
+        .feedback-placeholder {
+            padding: 30px 10px;
+        }
+
+
+        /* ========================================
+           操作方法
+        ======================================== */
+
+        .controls {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .controls th,
+        .controls td {
+            padding: 9px 12px;
+            border: 1px solid #dddddd;
+            text-align: left;
+        }
+
+        .controls th {
+            width: 180px;
+            background: #f5f5f5;
+            font-weight: normal;
+        }
+
+
+        /* ========================================
+           使用素材
+        ======================================== */
+
+        .material-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .material-list li {
+            margin-bottom: 5px;
+        }
+
+
+        /* ========================================
+           更新履歴
+        ======================================== */
+
+        .update {
+            margin-bottom: 18px;
+            padding-bottom: 15px;
+            border-bottom: 1px dotted #cccccc;
+        }
+
+        .update-date {
+            color: #777777;
+            font-size: 13px;
+        }
+
+        .update-version {
+            margin-left: 10px;
+            color: #555555;
+        }
+
+        .update p {
+            margin: 5px 0 0;
+        }
+
+
+        /* ========================================
+           ABOUT / MAIL / LINK
+        ======================================== */
+
+        .info-box {
+            padding: 18px 20px;
+            background: #fafafa;
+            border: 1px solid #dddddd;
+        }
+
+        .info-box p {
+            margin: 0 0 10px;
+        }
+
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            color: #555555;
+        }
+
+        a:hover {
+            color: #000000;
+        }
+
+
+        /* ========================================
+           フッター
+        ======================================== */
+
+        footer {
+            padding: 20px 35px;
+            border-top: 1px solid #dddddd;
+            color: #999999;
+            font-size: 11px;
+            text-align: center;
+        }
+
+
+        /* ========================================
+           狭い画面
+           ※ゲーム自体は816×624固定
+        ======================================== */
+
+        @media (max-width: 960px) {
+
+            .site {
+                width: 100%;
+                border-left: 0;
+                border-right: 0;
+            }
+
+            header {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            nav {
+                padding-left: 20px;
+                padding-right: 20px;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            main {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            /*
+               画面が816px未満でもゲームを縮小しない。
+               横スクロールしてゲーム全体を見る。
+            */
+
+            .game-frame {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    </style>
 </head>
+
+
 <body>
 
-<h1>ゲームサイト</h1>
+<div class="site">
 
-<p>ここにゲームを置きます。</p>
+
+    <!-- ======================================
+         ヘッダー
+    ======================================= -->
+
+    <header id="home">
+
+        <h1 class="site-title">
+            State act - 毒ノ空 -
+        </h1>
+
+        <p class="site-subtitle">
+            RPGツクールMV作品
+        </p>
+
+    </header>
+
+
+    <!-- ======================================
+         ナビゲーション
+    ======================================= -->
+
+    <nav>
+
+        <a href="#home">HOME</a>
+
+        <a href="#about">ABOUT</a>
+
+        <a href="#mail">MAIL</a>
+
+        <a href="#link">LINK</a>
+
+    </nav>
+
+
+    <main>
+
+
+        <!-- ======================================
+             バージョン
+        ======================================= -->
+
+        <div class="version">
+
+            <strong>Version 1.0.0</strong>
+
+            <span>
+                ｜ 最終更新：2026/08/27
+            </span>
+
+        </div>
+
+
+        <!-- ======================================
+             ゲーム
+        ======================================= -->
+
+        <section id="game">
+
+            <h2 class="section-title">
+                GAME
+                <small>PLAY</small>
+            </h2>
+
+
+            <div class="game-area">
+
+                <div class="game-frame">
+
+                    <iframe
+                        src="https://itch.io/embed-upload/18953992?color=333333"
+                        width="816"
+                        height="624"
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             フィードバック
+        ======================================= -->
+
+        <section id="feedback">
+
+            <h2 class="section-title">
+                FEEDBACK
+                <small>ご意見・ご感想</small>
+            </h2>
+
+
+            <div class="feedback-box">
+
+                <div class="feedback-placeholder">
+
+                    <p>
+                        ゲームへのご意見・ご感想はこちらから。
+                    </p>
+
+                    <p>
+                        Googleフォームをここに設置します。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             操作方法
+        ======================================= -->
+
+        <section id="controls">
+
+            <h2 class="section-title">
+                操作方法
+                <small>CONTROLS</small>
+            </h2>
+
+
+            <table class="controls">
+
+                <tr>
+                    <th>移動</th>
+                    <td>矢印キー</td>
+                </tr>
+
+                <tr>
+                    <th>決定・調べる</th>
+                    <td>Zキー / Enter</td>
+                </tr>
+
+                <tr>
+                    <th>キャンセル・メニュー</th>
+                    <td>Xキー / Esc</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+
+        <!-- ======================================
+             使用素材
+        ======================================= -->
+
+        <section id="materials">
+
+            <h2 class="section-title">
+                使用素材
+                <small>MATERIALS</small>
+            </h2>
+
+
+            <div class="info-box">
+
+                <ul class="material-list">
+
+                    <li>
+                        ここに使用した素材・素材サイトを記載します。
+                    </li>
+
+                    <li>
+                        例：BGM / SE
+                    </li>
+
+                    <li>
+                        例：画像素材
+                    </li>
+
+                    <li>
+                        例：プラグイン
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             更新履歴
+        ======================================= -->
+
+        <section id="updates">
+
+            <h2 class="section-title">
+                更新履歴
+                <small>UPDATE</small>
+            </h2>
+
+
+            <div class="update">
+
+                <div class="update-date">
+                    2026/08/27
+                    <span class="update-version">
+                        Ver. 1.0.0
+                    </span>
+                </div>
+
+                <p>
+                    ・サイト公開
+                </p>
+
+            </div>
+
+
+            <!--
+            更新するときは、これを上に追加していく。
+
+            <div class="update">
+
+                <div class="update-date">
+                    2026/09/01
+                    <span class="update-version">
+                        Ver. 1.0.1
+                    </span>
+                </div>
+
+                <p>
+                    ・○○を修正
+                    <br>
+                    ・○○を追加
+                </p>
+
+            </div>
+            -->
+
+        </section>
+
+
+        <!-- ======================================
+             ABOUT
+        ======================================= -->
+
+        <section id="about">
+
+            <h2 class="section-title">
+                ABOUT
+            </h2>
+
+
+            <div class="info-box">
+
+                <p>
+                    <strong>State act - 毒ノ空 -</strong>
+                </p>
+
+                <p>
+                    ここにゲームの紹介文を入れます。
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             MAIL
+        ======================================= -->
+
+        <section id="mail">
+
+            <h2 class="section-title">
+                MAIL
+            </h2>
+
+
+            <div class="info-box">
+
+                <p>
+                    ご連絡・お問い合わせはこちら。
+                </p>
+
+                <p>
+                    メールアドレスをここに記載します。
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             LINK
+        ======================================= -->
+
+        <section id="link">
+
+            <h2 class="section-title">
+                LINK
+            </h2>
+
+
+            <div class="info-box">
+
+                <p>
+                    <a
+                        href="https://sakumama.itch.io/stateactpoizon"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        itch.io - State act - 毒ノ空 -
+                    </a>
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ======================================
+         フッター
+    ======================================= -->
+
+    <footer>
+
+        State act - 毒ノ空 -
+
+    </footer>
+
+
+</div>
 
 </body>
 </html>
+```
