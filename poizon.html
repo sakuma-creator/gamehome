@@ -190,13 +190,49 @@
 
     /* 使用素材 */
 
-    .material-list {
-        margin: 0;
-        padding-left: 20px;
+    .material-table-wrap {
+        width: 100%;
+        overflow-x: auto;
     }
 
-    .material-list li {
-        margin-bottom: 5px;
+    .material-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+
+    .material-table th,
+    .material-table td {
+        padding: 9px 12px;
+        border: 1px solid #dddddd;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .material-table tr:not(.material-category) th {
+        width: 42%;
+        background: #fafafa;
+        font-weight: normal;
+    }
+
+    .material-table td {
+        width: 58%;
+        word-break: break-word;
+    }
+
+    .material-table a {
+        color: #555555;
+    }
+
+    .material-table a:hover {
+        color: #000000;
+    }
+
+    .material-category th {
+        padding: 8px 12px;
+        background: #f5f5f5;
+        color: #555555;
+        font-weight: normal;
     }
 
     /* 更新履歴 */
@@ -325,6 +361,18 @@
 
         .right-column {
             margin-top: 0;
+        }
+
+        .material-table {
+            table-layout: auto;
+        }
+
+        .material-table tr:not(.material-category) th {
+            width: 42%;
+        }
+
+        .material-table td {
+            width: 58%;
         }
     }
 </style>
@@ -455,224 +503,253 @@
             </section>
 
 
-<!-- 使用素材 -->
+            <!-- 使用素材 -->
 
-<section id="materials">
+            <section id="materials">
 
-```
-<h2 class="section-title">
-    使用素材
-    <small>MATERIALS</small>
-</h2>
+                <h2 class="section-title">
+                    使用素材
+                    <small>MATERIALS</small>
+                </h2>
 
-<div class="material-table-wrap">
+                <div class="material-table-wrap">
 
-    <table class="material-table">
+                    <table class="material-table">
 
-        <tbody>
+                        <tbody>
 
-            <!-- BGM -->
+                            <!-- BGM -->
 
-            <tr class="material-category">
-                <th colspan="2">BGM</th>
-            </tr>
+                            <tr class="material-category">
+                                <th colspan="2">BGM</th>
+                            </tr>
 
-            <tr>
-                <th>フリーBGM・音楽素材MusMus</th>
-                <td>
-                    <a href="https://musmus.main.jp" target="_blank" rel="noopener noreferrer">
-                        musmus.main.jp
-                    </a>
-                </td>
-            </tr>
+                            <tr>
+                                <th>フリーBGM・音楽素材MusMus</th>
+                                <td>
+                                    <a href="https://musmus.main.jp"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        musmus.main.jp
+                                    </a>
+                                </td>
+                            </tr>
 
-            <tr>
-                <th>甘茶の音楽工房</th>
-                <td>
-                    <a href="https://amachamusic.chagasi.com/index.html" target="_blank" rel="noopener noreferrer">
-                        amachamusic.chagasi.com
-                    </a>
-                </td>
-            </tr>
-
-
-            <!-- SE -->
-
-            <tr class="material-category">
-                <th colspan="2">SE</th>
-            </tr>
-
-            <tr>
-                <th>Springin’</th>
-                <td>
-                    <a href="https://www.springin.org/about-springin/" target="_blank" rel="noopener noreferrer">
-                        springin.org
-                    </a>
-                </td>
-            </tr>
+                            <tr>
+                                <th>甘茶の音楽工房</th>
+                                <td>
+                                    <a href="https://amachamusic.chagasi.com/index.html"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        amachamusic.chagasi.com
+                                    </a>
+                                </td>
+                            </tr>
 
 
-            <!-- プラグイン -->
+                            <!-- SE -->
 
-            <tr class="material-category">
-                <th colspan="2">プラグイン</th>
-            </tr>
+                            <tr class="material-category">
+                                <th colspan="2">SE</th>
+                            </tr>
 
-            <tr>
-                <th>tomoaky</th>
-                <td>
-                    <a href="https://x.com/tomoaky" target="_blank" rel="noopener noreferrer">
-                        X
-                    </a>
-                </td>
-            </tr>
-
-            <tr>
-                <th>くらむぼん</th>
-                <td>
-                    <a href="https://github.com/hajimehoshi/stbvorbis.js" target="_blank" rel="noopener noreferrer">
-                        GitHub
-                    </a>
-                </td>
-            </tr>
-
-            <tr>
-                <th>Naoya</th>
-                <td>
-                    <a href="http://respawnfromhere.blog.fc2.com/" target="_blank" rel="noopener noreferrer">
-                        respawnfromhere.blog.fc2.com
-                    </a>
-                </td>
-            </tr>
+                            <tr>
+                                <th>Springin’</th>
+                                <td>
+                                    <a href="https://www.springin.org/about-springin/"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        springin.org
+                                    </a>
+                                </td>
+                            </tr>
 
 
-            <!-- 敵キャラ -->
+                            <!-- プラグイン -->
 
-            <tr class="material-category">
-                <th colspan="2">敵キャラ</th>
-            </tr>
+                            <tr class="material-category">
+                                <th colspan="2">プラグイン</th>
+                            </tr>
 
-            <tr>
-                <th>CLOSET</th>
-                <td>
-                    <a href="http://eurs.blog65.fc2.com/" target="_blank" rel="noopener noreferrer">
-                        eurs.blog65.fc2.com
-                    </a>
-                </td>
-            </tr>
+                            <tr>
+                                <th>tomoaky</th>
+                                <td>
+                                    <a href="https://x.com/tomoaky"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        X
+                                    </a>
+                                </td>
+                            </tr>
 
-            <tr>
-                <th>モンスター素材屋さん</th>
-                <td>
-                    <a href="https://sozai.creature-ya.com/index.html" target="_blank" rel="noopener noreferrer">
-                        sozai.creature-ya.com
-                    </a>
-                </td>
-            </tr>
+                            <tr>
+                                <th>くらむぼん</th>
+                                <td>
+                                    <a href="https://github.com/hajimehoshi/stbvorbis.js"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        GitHub
+                                    </a>
+                                </td>
+                            </tr>
 
-            <tr>
-                <th>-JUNKIE Junk Shop-</th>
-                <td>
-                    <a href="https://www.junkie-chain.jp/main.html" target="_blank" rel="noopener noreferrer">
-                        junkie-chain.jp
-                    </a>
-                </td>
-            </tr>
-
-            <tr>
-                <th>鳥橋Den</th>
-                <td>
-                    <a href="https://torihasi.blog.fc2.com/" target="_blank" rel="noopener noreferrer">
-                        torihasi.blog.fc2.com
-                    </a>
-                </td>
-            </tr>
-
-            <tr>
-                <th>ニコニコモンズ</th>
-                <td>
-                    フリー素材あそび　
-                    <a href="https://commons.nicovideo.jp/search?keywords=%E3%83%95%E3%83%AA%E3%83%BC%E7%B4%A0%E6%9D%90%E3%81%82%E3%81%9D%E3%81%B3&sort=downloadCount&order=desc" target="_blank" rel="noopener noreferrer">
-                        ニコニコモンズ
-                    </a>
-                </td>
-            </tr>
+                            <tr>
+                                <th>Naoya</th>
+                                <td>
+                                    <a href="http://respawnfromhere.blog.fc2.com/"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        respawnfromhere.blog.fc2.com
+                                    </a>
+                                </td>
+                            </tr>
 
 
-            <!-- キャラチップ -->
+                            <!-- 敵キャラ -->
 
-            <tr class="material-category">
-                <th colspan="2">キャラチップ</th>
-            </tr>
+                            <tr class="material-category">
+                                <th colspan="2">敵キャラ</th>
+                            </tr>
 
-            <tr>
-                <th>whtdragon</th>
-                <td>
-                    <a href="https://plaza.komodo.jp/products/mv%E7%94%A8-%E7%84%A1%E6%96%99%E3%82%A2%E3%83%8B%E3%83%9E%E3%83%AB%E7%B4%A0%E6%9D%90%E9%9B%86" target="_blank" rel="noopener noreferrer">
-                        KOMODO
-                    </a>
-                </td>
-            </tr>
+                            <tr>
+                                <th>CLOSET</th>
+                                <td>
+                                    <a href="http://eurs.blog65.fc2.com/"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        eurs.blog65.fc2.com
+                                    </a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>モンスター素材屋さん</th>
+                                <td>
+                                    <a href="https://sozai.creature-ya.com/index.html"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        sozai.creature-ya.com
+                                    </a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>-JUNKIE Junk Shop-</th>
+                                <td>
+                                    <a href="https://www.junkie-chain.jp/main.html"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        junkie-chain.jp
+                                    </a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>鳥橋Den</th>
+                                <td>
+                                    <a href="https://torihasi.blog.fc2.com/"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        torihasi.blog.fc2.com
+                                    </a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>ニコニコモンズ</th>
+                                <td>
+                                    フリー素材あそび　
+                                    <a href="https://commons.nicovideo.jp/search?keywords=%E3%83%95%E3%83%AA%E3%83%BC%E7%B4%A0%E6%9D%90%E3%81%82%E3%81%9D%E3%81%B3&sort=downloadCount&order=desc"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        ニコニコモンズ
+                                    </a>
+                                </td>
+                            </tr>
 
 
-            <!-- 戦闘アニメ -->
+                            <!-- キャラチップ -->
 
-            <tr class="material-category">
-                <th colspan="2">戦闘アニメ</th>
-            </tr>
+                            <tr class="material-category">
+                                <th colspan="2">キャラチップ</th>
+                            </tr>
 
-            <tr>
-                <th>無料素材集Vol.1 - The Free Archives</th>
-                <td>
-                    <a href="https://dreams-circle.booth.pm/items/2122786" target="_blank" rel="noopener noreferrer">
-                        BOOTH
-                    </a>
-                </td>
-            </tr>
-
-            <tr>
-                <th>無料素材集Vol.2 - The Free Archives</th>
-                <td>
-                    <a href="https://booth.pm/ja/items/4868108" target="_blank" rel="noopener noreferrer">
-                        BOOTH
-                    </a>
-                </td>
-            </tr>
-
-            <tr>
-                <th>ぴぽや</th>
-                <td>
-                    <a href="https://pipoya.net/" target="_blank" rel="noopener noreferrer">
-                        pipoya.net
-                    </a>
-                </td>
-            </tr>
+                            <tr>
+                                <th>whtdragon</th>
+                                <td>
+                                    <a href="https://plaza.komodo.jp/products/mv%E7%94%A8-%E7%84%A1%E6%96%99%E3%82%A2%E3%83%8B%E3%83%9E%E3%83%AB%E7%B4%A0%E6%9D%90%E9%9B%86"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        KOMODO
+                                    </a>
+                                </td>
+                            </tr>
 
 
-            <!-- 顔グラ -->
+                            <!-- 戦闘アニメ -->
 
-            <tr class="material-category">
-                <th colspan="2">顔グラ</th>
-            </tr>
+                            <tr class="material-category">
+                                <th colspan="2">戦闘アニメ</th>
+                            </tr>
 
-            <tr>
-                <th>森の奥の隠れ里</th>
-                <td>
-                    <a href="https://fayforest.sakura.ne.jp/" target="_blank" rel="noopener noreferrer">
-                        fayforest.sakura.ne.jp
-                    </a>
-                </td>
-            </tr>
+                            <tr>
+                                <th>無料素材集Vol.1 - The Free Archives</th>
+                                <td>
+                                    <a href="https://dreams-circle.booth.pm/items/2122786"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        BOOTH
+                                    </a>
+                                </td>
+                            </tr>
 
-        </tbody>
+                            <tr>
+                                <th>無料素材集Vol.2 - The Free Archives</th>
+                                <td>
+                                    <a href="https://booth.pm/ja/items/4868108"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        BOOTH
+                                    </a>
+                                </td>
+                            </tr>
 
-    </table>
+                            <tr>
+                                <th>ぴぽや</th>
+                                <td>
+                                    <a href="https://pipoya.net/"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        pipoya.net
+                                    </a>
+                                </td>
+                            </tr>
 
-</div>
-```
 
-</section>
+                            <!-- 顔グラ -->
 
+                            <tr class="material-category">
+                                <th colspan="2">顔グラ</th>
+                            </tr>
+
+                            <tr>
+                                <th>森の奥の隠れ里</th>
+                                <td>
+                                    <a href="https://fayforest.sakura.ne.jp/"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        fayforest.sakura.ne.jp
+                                    </a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
 
         </div>
 
