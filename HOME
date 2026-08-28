@@ -1,1 +1,376 @@
+<!DOCTYPE html>
 
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>TELwing</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: #eeeeee;
+        color: #333333;
+        font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            "Yu Gothic",
+            "Hiragino Kaku Gothic ProN",
+            Meiryo,
+            sans-serif;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .site {
+        width: 960px;
+        margin: 0 auto;
+        background: #ffffff;
+        min-height: 100vh;
+        border-left: 1px solid #dddddd;
+        border-right: 1px solid #dddddd;
+    }
+
+    /* ====================
+       ヘッダー
+    ==================== */
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 35px;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .site-title {
+        margin: 0;
+        font-size: 24px;
+        font-weight: normal;
+        letter-spacing: 1px;
+        white-space: nowrap;
+    }
+
+    /* ====================
+       ナビゲーション
+    ==================== */
+
+    nav {
+        margin-left: auto;
+        white-space: nowrap;
+    }
+
+    nav a {
+        display: inline-block;
+        padding: 5px 15px;
+        color: #555555;
+        text-decoration: none;
+        border-right: 1px solid #eeeeee;
+    }
+
+    nav a:first-child {
+        border-left: 1px solid #eeeeee;
+    }
+
+    nav a:hover {
+        background: #f3f3f3;
+        color: #111111;
+    }
+
+    /* ====================
+       メイン
+    ==================== */
+
+    main {
+        padding: 30px 35px 60px;
+    }
+
+    section {
+        margin-bottom: 45px;
+    }
+
+    .section-title {
+        margin: 0 0 18px;
+        padding-bottom: 7px;
+        border-bottom: 1px solid #cccccc;
+        font-size: 18px;
+        font-weight: normal;
+        color: #444444;
+    }
+
+    .section-title small {
+        margin-left: 8px;
+        color: #aaaaaa;
+        font-size: 11px;
+    }
+
+    /* ====================
+       HOME
+    ==================== */
+
+    .home-intro {
+        padding: 50px 30px;
+        background: #fafafa;
+        border: 1px solid #dddddd;
+        text-align: center;
+    }
+
+    .home-intro h2 {
+        margin: 0 0 10px;
+        font-size: 26px;
+        font-weight: normal;
+        letter-spacing: 1px;
+    }
+
+    .home-intro p {
+        margin: 0;
+        color: #777777;
+    }
+
+    /* ====================
+       お知らせ
+    ==================== */
+
+    .news-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-top: 1px solid #dddddd;
+    }
+
+    .news-list li {
+        padding: 10px 5px;
+        border-bottom: 1px dotted #cccccc;
+    }
+
+    .news-date {
+        display: inline-block;
+        width: 110px;
+        color: #888888;
+        font-size: 13px;
+    }
+
+    /* ====================
+       ゲームへのリンク
+    ==================== */
+
+    .game-link {
+        display: block;
+        padding: 20px;
+        border: 1px solid #dddddd;
+        background: #ffffff;
+        color: #444444;
+        text-decoration: none;
+    }
+
+    .game-link:hover {
+        background: #f5f5f5;
+    }
+
+    .game-link-title {
+        margin-bottom: 3px;
+        font-size: 18px;
+    }
+
+    .game-link-description {
+        color: #777777;
+        font-size: 13px;
+    }
+
+    /* ====================
+       フッター
+    ==================== */
+
+    footer {
+        padding: 20px 35px;
+        border-top: 1px solid #dddddd;
+        color: #999999;
+        font-size: 11px;
+        text-align: center;
+    }
+
+    /* ====================
+       タブレット
+    ==================== */
+
+    @media (max-width: 960px) {
+
+        .site {
+            width: 100%;
+            border-left: 0;
+            border-right: 0;
+        }
+
+        header {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        main {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+
+    /* ====================
+       スマホ
+    ==================== */
+
+    @media (max-width: 600px) {
+
+        header {
+            display: block;
+            padding-top: 18px;
+            padding-bottom: 10px;
+        }
+
+        .site-title {
+            margin-bottom: 10px;
+        }
+
+        nav {
+            margin-left: 0;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        nav a {
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        .news-date {
+            display: block;
+            width: auto;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+<div class="site">
+
+```
+<!-- ====================
+     ヘッダー
+==================== -->
+
+<header>
+
+    <h1 class="site-title">
+        TELwing
+    </h1>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="game.html">GAME</a>
+    </nav>
+
+</header>
+
+
+<!-- ====================
+     メイン
+==================== -->
+
+<main>
+
+
+    <!-- HOME INTRO -->
+
+    <section>
+
+        <div class="home-intro">
+
+            <h2>
+                TELwing
+            </h2>
+
+            <p>
+                Welcome.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- NEWS -->
+
+    <section>
+
+        <h2 class="section-title">
+            お知らせ
+            <small>NEWS</small>
+        </h2>
+
+        <ul class="news-list">
+
+            <li>
+                <span class="news-date">
+                    2026/08/27
+                </span>
+
+                サイトを公開しました。
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- GAME -->
+
+    <section>
+
+        <h2 class="section-title">
+            GAME
+            <small>GAME</small>
+        </h2>
+
+        <a href="game.html" class="game-link">
+
+            <div class="game-link-title">
+                GAME
+            </div>
+
+            <div class="game-link-description">
+                制作したゲームを見る
+            </div>
+
+        </a>
+
+    </section>
+
+
+</main>
+
+
+<!-- ====================
+     フッター
+==================== -->
+
+<footer>
+    TELwing
+</footer>
+```
+
+</div>
+
+</body>
+</html>
