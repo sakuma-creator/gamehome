@@ -1,538 +1,545 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TELwing</title>
+```
+<title>TELwing</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<style>
+    * {
+        box-sizing: border-box;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    html {
+        scroll-behavior: smooth;
+    }
 
-        body {
-            margin: 0;
-            padding: 0;
-            background: #eeeeee;
-            color: #333333;
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "Yu Gothic",
-                "Hiragino Kaku Gothic ProN",
-                Meiryo,
-                sans-serif;
-            font-size: 14px;
-            line-height: 1.8;
-        }
+    body {
+        margin: 0;
+        padding: 0;
+        background: #eeeeee;
+        color: #333333;
+        font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            "Yu Gothic",
+            "Hiragino Kaku Gothic ProN",
+            Meiryo,
+            sans-serif;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .site {
+        width: 960px;
+        margin: 0 auto;
+        background: #ffffff;
+        min-height: 100vh;
+        border-left: 1px solid #dddddd;
+        border-right: 1px solid #dddddd;
+    }
+
+    /* ヘッダー */
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 35px;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .site-title {
+        margin: 0;
+        font-size: 24px;
+        font-weight: normal;
+        letter-spacing: 1px;
+        white-space: nowrap;
+    }
+
+    /* ナビゲーション */
+
+    nav {
+        margin-left: auto;
+        white-space: nowrap;
+    }
+
+    nav a {
+        display: inline-block;
+        padding: 5px 15px;
+        color: #555555;
+        text-decoration: none;
+        border-right: 1px solid #eeeeee;
+    }
+
+    nav a:first-child {
+        border-left: 1px solid #eeeeee;
+    }
+
+    nav a:hover {
+        background: #f3f3f3;
+        color: #111111;
+    }
+
+    /* メイン */
+
+    main {
+        padding: 30px 35px 60px;
+    }
+
+    .version {
+        margin-bottom: 25px;
+        padding: 10px 15px;
+        background: #f5f5f5;
+        border: 1px solid #dddddd;
+        color: #666666;
+        font-size: 13px;
+    }
+
+    section {
+        margin-bottom: 45px;
+    }
+
+    .section-title {
+        margin: 0 0 18px;
+        padding-bottom: 7px;
+        border-bottom: 1px solid #cccccc;
+        font-size: 18px;
+        font-weight: normal;
+        color: #444444;
+    }
+
+    .section-title small {
+        margin-left: 8px;
+        color: #aaaaaa;
+        font-size: 11px;
+    }
+
+    /* ゲーム画面 */
+
+    .game-area {
+        width: 100%;
+        overflow-x: auto;
+        padding: 10px 0 0;
+    }
+
+    .game-frame {
+        width: 816px;
+        height: 624px;
+        margin: 0 auto;
+    }
+
+    .game-frame iframe {
+        display: block;
+        width: 816px;
+        height: 624px;
+        border: 0;
+    }
+
+    /* 評価 */
+
+    .long-feedback {
+        margin-top: 0;
+        padding: 12px 0 0;
+        text-align: right;
+    }
+
+    .long-feedback a {
+        color: #555555;
+    }
+
+    /* 下部2カラム */
+
+    .lower-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 35px;
+        align-items: start;
+    }
+
+    .left-column {
+        min-width: 0;
+    }
+
+    .right-column {
+        min-width: 0;
+    }
+
+    /* 操作方法 */
+
+    .controls {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .controls th,
+    .controls td {
+        padding: 9px 12px;
+        border: 1px solid #dddddd;
+        text-align: left;
+    }
+
+    .controls th {
+        width: 180px;
+        background: #f5f5f5;
+        font-weight: normal;
+    }
+
+    /* 使用素材 */
+
+    .material-list {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .material-list li {
+        margin-bottom: 5px;
+    }
+
+    /* 更新履歴 */
+
+    .update {
+        margin-bottom: 18px;
+        padding-bottom: 15px;
+        border-bottom: 1px dotted #cccccc;
+    }
+
+    .update-date {
+        color: #777777;
+        font-size: 13px;
+    }
+
+    .update-version {
+        margin-left: 10px;
+        color: #555555;
+    }
+
+    .update p {
+        margin: 5px 0 0;
+    }
+
+    /* 情報ボックス */
+
+    .info-box {
+        padding: 18px 20px;
+        background: #fafafa;
+        border: 1px solid #dddddd;
+    }
+
+    .info-box p {
+        margin: 0 0 10px;
+    }
+
+    .info-box p:last-child {
+        margin-bottom: 0;
+    }
+
+    a {
+        color: #555555;
+    }
+
+    a:hover {
+        color: #000000;
+    }
+
+    /* フッター */
+
+    footer {
+        padding: 20px 35px;
+        border-top: 1px solid #dddddd;
+        color: #999999;
+        font-size: 11px;
+        text-align: center;
+    }
+
+    /* 画面が狭い場合 */
+
+    @media (max-width: 960px) {
 
         .site {
-            width: 960px;
-            margin: 0 auto;
-            background: #ffffff;
-            min-height: 100vh;
-            border-left: 1px solid #dddddd;
-            border-right: 1px solid #dddddd;
+            width: 100%;
+            border-left: 0;
+            border-right: 0;
         }
-
-        /* ヘッダー */
 
         header {
-            display: flex;
-            align-items: center;
-            padding: 18px 35px;
-            border-bottom: 1px solid #dddddd;
+            padding-left: 20px;
+            padding-right: 20px;
         }
 
-        .site-title {
-            margin: 0;
-            font-size: 24px;
-            font-weight: normal;
-            letter-spacing: 1px;
+        nav {
+            margin-left: auto;
+            overflow-x: auto;
             white-space: nowrap;
         }
 
-        /* ナビゲーション */
-
-        nav {
-            margin-left: 30px;
-        }
-
-        nav a {
-            display: inline-block;
-            padding: 5px 15px;
-            color: #555555;
-            text-decoration: none;
-            border-right: 1px solid #eeeeee;
-        }
-
-        nav a:first-child {
-            border-left: 1px solid #eeeeee;
-        }
-
-        nav a:hover {
-            background: #f3f3f3;
-            color: #111111;
-        }
-
-        /* メイン */
-
         main {
-            padding: 30px 35px 60px;
-        }
-
-        .version {
-            margin-bottom: 25px;
-            padding: 10px 15px;
-            background: #f5f5f5;
-            border: 1px solid #dddddd;
-            color: #666666;
-            font-size: 13px;
-        }
-
-        section {
-            margin-bottom: 45px;
-        }
-
-        .section-title {
-            margin: 0 0 18px;
-            padding-bottom: 7px;
-            border-bottom: 1px solid #cccccc;
-            font-size: 18px;
-            font-weight: normal;
-            color: #444444;
-        }
-
-        .section-title small {
-            margin-left: 8px;
-            color: #aaaaaa;
-            font-size: 11px;
-        }
-
-        /* ゲーム画面 */
-
-        .game-area {
-            width: 100%;
-            overflow-x: auto;
-            padding: 10px 0 0;
+            padding-left: 20px;
+            padding-right: 20px;
         }
 
         .game-frame {
-            width: 816px;
-            height: 624px;
-            margin: 0 auto;
+            margin-left: 0;
+            margin-right: 0;
         }
+    }
 
-        .game-frame iframe {
+    /* スマホ */
+
+    @media (max-width: 600px) {
+
+        header {
             display: block;
-            width: 816px;
-            height: 624px;
-            border: 0;
+            padding-top: 18px;
+            padding-bottom: 10px;
         }
 
-        /* 評価 */
-
-        .long-feedback {
-            margin-top: 0;
-            padding: 12px 0 0;
-            text-align: right;
+        .site-title {
+            margin-bottom: 10px;
         }
 
-        .long-feedback a {
-            color: #555555;
+        nav {
+            margin-left: 0;
+            overflow-x: auto;
+            white-space: nowrap;
         }
 
-        /* 下部2カラム */
+        nav a {
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        /* 操作方法 → 使用素材 → 更新履歴 */
 
         .lower-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            column-gap: 35px;
-            align-items: start;
+            display: block;
         }
 
-        .left-column {
-            min-width: 0;
-        }
-
+        .left-column,
         .right-column {
-            min-width: 0;
-        }
-
-        /* 操作方法 */
-
-        .controls {
-            border-collapse: collapse;
             width: 100%;
         }
 
-        .controls th,
-        .controls td {
-            padding: 9px 12px;
-            border: 1px solid #dddddd;
-            text-align: left;
+        .right-column {
+            margin-top: 0;
         }
+    }
+</style>
+```
 
-        .controls th {
-            width: 180px;
-            background: #f5f5f5;
-            font-weight: normal;
-        }
-
-        /* 使用素材 */
-
-        .material-list {
-            margin: 0;
-            padding-left: 20px;
-        }
-
-        .material-list li {
-            margin-bottom: 5px;
-        }
-
-        /* 更新履歴 */
-
-        .update {
-            margin-bottom: 18px;
-            padding-bottom: 15px;
-            border-bottom: 1px dotted #cccccc;
-        }
-
-        .update-date {
-            color: #777777;
-            font-size: 13px;
-        }
-
-        .update-version {
-            margin-left: 10px;
-            color: #555555;
-        }
-
-        .update p {
-            margin: 5px 0 0;
-        }
-
-        /* 情報ボックス */
-
-        .info-box {
-            padding: 18px 20px;
-            background: #fafafa;
-            border: 1px solid #dddddd;
-        }
-
-        .info-box p {
-            margin: 0 0 10px;
-        }
-
-        .info-box p:last-child {
-            margin-bottom: 0;
-        }
-
-        a {
-            color: #555555;
-        }
-
-        a:hover {
-            color: #000000;
-        }
-
-        /* フッター */
-
-        footer {
-            padding: 20px 35px;
-            border-top: 1px solid #dddddd;
-            color: #999999;
-            font-size: 11px;
-            text-align: center;
-        }
-
-        /* 画面が狭い場合 */
-
-        @media (max-width: 960px) {
-
-            .site {
-                width: 100%;
-                border-left: 0;
-                border-right: 0;
-            }
-
-            header {
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-
-            nav {
-                margin-left: 20px;
-                overflow-x: auto;
-                white-space: nowrap;
-            }
-
-            main {
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-
-            .game-frame {
-                margin-left: 0;
-                margin-right: 0;
-            }
-        }
-
-        /* スマホ */
-
-        @media (max-width: 600px) {
-
-            header {
-                display: block;
-                padding-top: 18px;
-                padding-bottom: 10px;
-            }
-
-            .site-title {
-                margin-bottom: 10px;
-            }
-
-            nav {
-                margin-left: 0;
-                overflow-x: auto;
-            }
-
-            nav a {
-                padding-left: 12px;
-                padding-right: 12px;
-            }
-
-            .lower-content {
-                display: block;
-            }
-
-            .left-column,
-            .right-column {
-                width: 100%;
-            }
-
-            .right-column {
-                margin-top: 45px;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
 <div class="site">
 
-    <!-- ヘッダー -->
+```
+<!-- ヘッダー -->
 
-    <header id="home">
+<header id="home">
 
-        <h1 class="site-title">
-            TELwing
-        </h1>
+    <h1 class="site-title">
+        TELwing
+    </h1>
 
-        <nav>
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#mail">MAIL</a>
+        <a href="#link">LINK</a>
+    </nav>
 
-            <a href="#home">HOME</a>
-            <a href="#about">ABOUT</a>
-            <a href="#mail">MAIL</a>
-            <a href="#link">LINK</a>
-
-        </nav>
-
-    </header>
+</header>
 
 
-    <main>
+<main>
 
-        <!-- バージョン -->
+    <!-- バージョン -->
 
-        <div class="version">
+    <div class="version">
 
-            <strong>Version 1.0.0</strong>
+        <strong>Version 1.0.0</strong>
 
-            <span>
-                ｜ 最終更新：2026/08/27
-            </span>
+        <span>
+            ｜ 最終更新：2026/08/27
+        </span>
+
+    </div>
+
+
+    <!-- ゲーム -->
+
+    <section id="game">
+
+        <div class="game-area">
+
+            <div class="game-frame">
+
+                <iframe
+                    src="https://itch.io/embed-upload/18953992?color=333333"
+                    width="816"
+                    height="624"
+                    frameborder="0"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
 
         </div>
 
 
-        <!-- ゲーム -->
+        <!-- 評価 -->
 
-        <section id="game">
+        <div class="long-feedback">
 
-            <div class="game-area">
+            <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSc-Ot8Pkrp5H049mDTBxopKqS38H6cIfr8oqNT7sTDOBvYzZA/viewform?usp=dialog"
+                target="_blank"
+                rel="noopener noreferrer">
+                ゲームを評価する
+            </a>
 
-                <div class="game-frame">
+        </div>
 
-                    <iframe
-                        src="https://itch.io/embed-upload/18953992?color=333333"
-                        width="816"
-                        height="624"
-                        frameborder="0"
-                        allowfullscreen>
-                    </iframe>
+    </section>
+
+
+    <!-- 下部コンテンツ -->
+
+    <div class="lower-content">
+
+        <!-- 左側 -->
+
+        <div class="left-column">
+
+            <!-- 操作方法 -->
+
+            <section id="controls">
+
+                <h2 class="section-title">
+                    操作方法
+                    <small>CONTROLS</small>
+                </h2>
+
+                <table class="controls">
+
+                    <tr>
+                        <th>移動</th>
+                        <td>矢印キー</td>
+                    </tr>
+
+                    <tr>
+                        <th>決定・調べる</th>
+                        <td>Zキー / Enter</td>
+                    </tr>
+
+                    <tr>
+                        <th>キャンセル・メニュー</th>
+                        <td>Xキー / Esc</td>
+                    </tr>
+
+                    <tr>
+                        <th>ダッシュ、スキル全体化</th>
+                        <td>Shiftキー</td>
+                    </tr>
+
+                    <tr>
+                        <th>戦闘高速化</th>
+                        <td>Ctrlキー</td>
+                    </tr>
+
+                </table>
+
+            </section>
+
+
+            <!-- 使用素材 -->
+
+            <section id="materials">
+
+                <h2 class="section-title">
+                    使用素材
+                    <small>MATERIALS</small>
+                </h2>
+
+                <div class="info-box">
+
+                    <ul class="material-list">
+
+                        <li>
+                            ここに使用した素材・素材サイトを記載します。
+                        </li>
+
+                        <li>
+                            BGM / SE
+                        </li>
+
+                        <li>
+                            画像素材
+                        </li>
+
+                        <li>
+                            プラグイン
+                        </li>
+
+                    </ul>
 
                 </div>
 
-            </div>
-
-
-            <!-- 評価 -->
-
-            <div class="long-feedback">
-
-                <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSc-Ot8Pkrp5H049mDTBxopKqS38H6cIfr8oqNT7sTDOBvYzZA/viewform?usp=dialog"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    ゲームを評価する
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- 下部2カラム -->
-
-        <div class="lower-content">
-
-            <!-- 左側 -->
-
-            <div class="left-column">
-
-                <!-- 操作方法 -->
-
-                <section id="controls">
-
-                    <h2 class="section-title">
-                        操作方法
-                        <small>CONTROLS</small>
-                    </h2>
-
-                    <table class="controls">
-
-                        <tr>
-                            <th>移動</th>
-                            <td>矢印キー</td>
-                        </tr>
-
-                        <tr>
-                            <th>決定・調べる</th>
-                            <td>Zキー / Enter</td>
-                        </tr>
-
-                        <tr>
-                            <th>キャンセル・メニュー</th>
-                            <td>Xキー / Esc</td>
-                        </tr>
-
-                        <tr>
-                            <th>ダッシュ、スキル全体化</th>
-                            <td>Shiftキー</td>
-                        </tr>
-
-                        <tr>
-                            <th>戦闘高速化</th>
-                            <td>Ctrlキー</td>
-                        </tr>
-
-                    </table>
-
-                </section>
-
-
-                <!-- 使用素材 -->
-
-                <section id="materials">
-
-                    <h2 class="section-title">
-                        使用素材
-                        <small>MATERIALS</small>
-                    </h2>
-
-                    <div class="info-box">
-
-                        <ul class="material-list">
-
-                            <li>
-                                ここに使用した素材・素材サイトを記載します。
-                            </li>
-
-                            <li>
-                                BGM / SE
-                            </li>
-
-                            <li>
-                                画像素材
-                            </li>
-
-                            <li>
-                                プラグイン
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-                </section>
-
-            </div>
-
-
-            <!-- 右側 -->
-
-            <div class="right-column">
-
-                <!-- 更新履歴 -->
-
-                <section id="updates">
-
-                    <h2 class="section-title">
-                        更新履歴
-                        <small>UPDATE</small>
-                    </h2>
-
-                    <div class="update">
-
-                        <div class="update-date">
-
-                            2026/08/27
-
-                            <span class="update-version">
-                                Ver. 1.0.0
-                            </span>
-
-                        </div>
-
-                        <p>
-                            ・サイト公開
-                        </p>
-
-                    </div>
-
-                </section>
-
-            </div>
+            </section>
 
         </div>
 
-    </main>
+
+        <!-- 右側 -->
+
+        <div class="right-column">
+
+            <!-- 更新履歴 -->
+
+            <section id="updates">
+
+                <h2 class="section-title">
+                    更新履歴
+                    <small>UPDATE</small>
+                </h2>
+
+                <div class="update">
+
+                    <div class="update-date">
+
+                        2026/08/27
+
+                        <span class="update-version">
+                            Ver. 1.0.0
+                        </span>
+
+                    </div>
+
+                    <p>
+                        ・サイト公開
+                    </p>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</main>
 
 
-    <!-- フッター -->
+<!-- フッター -->
 
-    <footer>
-
-        TELwing
-
-    </footer>
+<footer>
+    TELwing
+</footer>
+```
 
 </div>
 
